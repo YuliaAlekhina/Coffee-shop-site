@@ -1,0 +1,402 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Магазин кофе
+
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet")
+
+        link(rel="icon" href="../Favicon.png" type="image/x-icon")
+
+        style
+            include style/smartbasket.min.css
+            include style/dist/style.css
+    body
+        div.wrapper
+            include modules/header
+            section.catalog-coffee.container
+                .catalog-coffee__body
+                    h2.catalog-coffe__title.title-white Свежеобжаренный кофе
+                    .catalog-coffee__image
+                        img(src="../img/header/coffee.png", alt="Чашка кофе")
+            section.catalog-products.container
+                .catalog-products__body.container
+                    .catalog-products__row
+                        //Первый товар
+                        .items-sale__item
+                            .items-sale__item-item
+                                .items-sale__item-gram 250 г.
+                                .items-sale__item-sale Новый урожай
+                                .items-sale__item-offer
+                                    .items-sale__offer-image
+                                        img(src="../img/header/product.png", alt="Продукт")
+                                    .items-sale__offer
+                                        .items-sale__offer-star
+                                            .offer-star.star-1
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-2
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-3
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-4
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-5
+                                                img(src="../img/header/Star.png", alt="Звезда")
+                                        p.items-sale__offer-text 4.0 
+                                        .items-sale__offer-coffee
+                                            .offer-coffee.coffee-1
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-2
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-3
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-4
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-5
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                        .items-sale__offer-row
+                                            p.items-sale__row-offer.row-offer-1 Кислинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-2 Горчинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-3 Насыщенность
+                                                span 
+
+                                .items-sale__item-info
+                                    p.items-sale__item-name Colombia Supremo
+                                    p.items-sale__item-description Свежеобжаренный кофе - описание товара, вкус, аромат
+                                    .items-sale__item-price
+                                        p.sale-price 250 ₽
+                                            span 350 ₽
+                                        //.sale-button
+                                            a(href="#").sale-btn В корзину
+
+                            div.card__button-add
+                                div.product__quantity.card-amount
+                                button(data-sb-id-or-vendor-code="01"
+                                    data-sb-product-name="Colombia Supremo"
+                                    data-sb-product-price='250'
+                                    data-sb-product-quantity='1'
+                                    data-sb-product-img="../img/header/product.png" href="").card__button-add.card__button В корзину
+
+
+
+                        //Второй товар
+                        .items-sale__item
+                            .items-sale__item-item
+                                .items-sale__item-gram 250 г.
+                                .items-sale__item-sale Новый урожай
+                                .items-sale__item-offer
+                                    .items-sale__offer-image
+                                        img(src="../img/header/product.png", alt="Продукт")
+                                    .items-sale__offer
+                                        .items-sale__offer-star
+                                            .offer-star.star-1
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-2
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-3
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-4
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-5
+                                                img(src="../img/header/Star.png", alt="Звезда")
+                                        p.items-sale__offer-text 4.0 
+                                        .items-sale__offer-coffee
+                                            .offer-coffee.coffee-1
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-2
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-3
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-4
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-5
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                        .items-sale__offer-row
+                                            p.items-sale__row-offer.row-offer-1 Кислинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-2 Горчинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-3 Насыщенность
+                                                span 
+
+                                .items-sale__item-info
+                                    p.items-sale__item-name Colombia Supremo
+                                    p.items-sale__item-description Свежеобжаренный кофе - описание товара, вкус, аромат
+                                    .items-sale__item-price
+                                        p.sale-price 250 ₽
+                                            span 350 ₽
+                                        //.sale-button
+                                            a(href="#").sale-btn В корзину
+
+
+                            div.card__button-add
+                                div.product__quantity.card-amount
+                                button(data-sb-id-or-vendor-code="02"
+                                    data-sb-product-name="Colombia Supremo"
+                                    data-sb-product-price='250'
+                                    data-sb-product-quantity='1'
+                                    data-sb-product-img="../img/header/product.png" href="").card__button-add.card__button В корзину
+
+
+
+                        //Третий товар
+                        .items-sale__item
+                            .items-sale__item-item
+                                .items-sale__item-gram 250 г.
+                                .items-sale__item-sale Новый урожай
+                                .items-sale__item-offer
+                                    .items-sale__offer-image
+                                        img(src="../img/header/product.png", alt="Продукт")
+                                    .items-sale__offer
+                                        .items-sale__offer-star
+                                            .offer-star.star-1
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-2
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-3
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-4
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-5
+                                                img(src="../img/header/Star.png", alt="Звезда")
+                                        p.items-sale__offer-text 4.0 
+                                        .items-sale__offer-coffee
+                                            .offer-coffee.coffee-1
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-2
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-3
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-4
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-5
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                        .items-sale__offer-row
+                                            p.items-sale__row-offer.row-offer-1 Кислинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-2 Горчинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-3 Насыщенность
+                                                span 
+
+                                .items-sale__item-info
+                                    p.items-sale__item-name Colombia Supremo
+                                    p.items-sale__item-description Свежеобжаренный кофе - описание товара, вкус, аромат
+                                    .items-sale__item-price
+                                        p.sale-price 250 ₽
+                                            span 350 ₽
+                                        //.sale-button
+                                            a(href="#").sale-btn В корзину
+
+                            div.card__button-add
+                                div.product__quantity.card-amount
+                                button(data-sb-id-or-vendor-code="03"
+                                    data-sb-product-name="Colombia Supremo"
+                                    data-sb-product-price='250'
+                                    data-sb-product-quantity='1'
+                                    data-sb-product-img="../img/header/product.png" href="").card__button-add.card__button В корзину
+
+
+                        //Четвертый товар
+                        .items-sale__item
+                            .items-sale__item-item
+                                .items-sale__item-gram 250 г.
+                                .items-sale__item-sale Новый урожай
+                                .items-sale__item-offer
+                                    .items-sale__offer-image
+                                        img(src="../img/header/product.png", alt="Продукт")
+                                    .items-sale__offer
+                                        .items-sale__offer-star
+                                            .offer-star.star-1
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-2
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-3
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-4
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-5
+                                                img(src="../img/header/Star.png", alt="Звезда")
+                                        p.items-sale__offer-text 4.0 
+                                        .items-sale__offer-coffee
+                                            .offer-coffee.coffee-1
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-2
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-3
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-4
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-5
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                        .items-sale__offer-row
+                                            p.items-sale__row-offer.row-offer-1 Кислинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-2 Горчинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-3 Насыщенность
+                                                span 
+
+                                .items-sale__item-info
+                                    p.items-sale__item-name Colombia Supremo
+                                    p.items-sale__item-description Свежеобжаренный кофе - описание товара, вкус, аромат
+                                    .items-sale__item-price
+                                        p.sale-price 250 ₽
+                                            span 350 ₽
+                                        //.sale-button
+                                            a(href="#").sale-btn В корзину
+
+                            div.card__button-add
+                                div.product__quantity.card-amount
+                                button(data-sb-id-or-vendor-code="04"
+                                    data-sb-product-name="Colombia Supremo"
+                                    data-sb-product-price='250'
+                                    data-sb-product-quantity='1'
+                                    data-sb-product-img="../img/header/product.png" href="").card__button-add.card__button В корзину
+
+
+                        //Пятый товар
+                        .items-sale__item
+                            .items-sale__item-item
+                                .items-sale__item-gram 250 г.
+                                .items-sale__item-sale Новый урожай
+                                .items-sale__item-offer
+                                    .items-sale__offer-image
+                                        img(src="../img/header/product.png", alt="Продукт")
+                                    .items-sale__offer
+                                        .items-sale__offer-star
+                                            .offer-star.star-1
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-2
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-3
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-4
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-5
+                                                img(src="../img/header/Star.png", alt="Звезда")
+                                        p.items-sale__offer-text 4.0 
+                                        .items-sale__offer-coffee
+                                            .offer-coffee.coffee-1
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-2
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-3
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-4
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-5
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                        .items-sale__offer-row
+                                            p.items-sale__row-offer.row-offer-1 Кислинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-2 Горчинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-3 Насыщенность
+                                                span 
+
+                                .items-sale__item-info
+                                    p.items-sale__item-name Colombia Supremo
+                                    p.items-sale__item-description Свежеобжаренный кофе - описание товара, вкус, аромат
+                                    .items-sale__item-price
+                                        p.sale-price 250 ₽
+                                            span 350 ₽
+                                        //.sale-button
+                                            a(href="#").sale-btn В корзину
+
+
+                            div.card__button-add
+                                div.product__quantity.card-amount
+                                button(data-sb-id-or-vendor-code="05"
+                                    data-sb-product-name="Colombia Supremo"
+                                    data-sb-product-price='250'
+                                    data-sb-product-quantity='1'
+                                    data-sb-product-img="../img/header/product.png" href="").card__button-add.card__button В корзину
+
+
+                        //Шестой товар
+                        .items-sale__item
+                            .items-sale__item-item
+                                .items-sale__item-gram 250 г.
+                                .items-sale__item-sale Новый урожай
+                                .items-sale__item-offer
+                                    .items-sale__offer-image
+                                        img(src="../img/header/product.png", alt="Продукт")
+                                    .items-sale__offer
+                                        .items-sale__offer-star
+                                            .offer-star.star-1
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-2
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-3
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-4
+                                                img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                            .offer-star.star-5
+                                                img(src="../img/header/Star.png", alt="Звезда")
+                                        p.items-sale__offer-text 4.0 
+                                        .items-sale__offer-coffee
+                                            .offer-coffee.coffee-1
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-2
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-3
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-4
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .offer-coffee.coffee-5
+                                                img(src="../img/header/coffee-22.png", alt="Зерно")
+                                        .items-sale__offer-row
+                                            p.items-sale__row-offer.row-offer-1 Кислинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-2 Горчинка
+                                                span 
+                                            p.items-sale__row-offer.row-offer-3 Насыщенность
+                                                span 
+
+                                .items-sale__item-info
+                                    p.items-sale__item-name Colombia Supremo
+                                    p.items-sale__item-description Свежеобжаренный кофе - описание товара, вкус, аромат
+                                    .items-sale__item-price
+                                        p.sale-price 250 ₽
+                                            span 350 ₽
+                                        //.sale-button
+                                            a(href="#").sale-btn В корзину
+
+                            div.card__button-add
+                                div.product__quantity.card-amount
+                                button(data-sb-id-or-vendor-code="06"
+                                    data-sb-product-name="Colombia Supremo"
+                                    data-sb-product-price='250'
+                                    data-sb-product-quantity='1'
+                                    data-sb-product-img="../img/header/product.png" href="").card__button-add.card__button В корзину
+
+
+
+            div.smart-basket__wrapper
+
+
+
+            section.catalog-subscription.container
+                .subscription__body
+                    .subscription__body-info
+                        h2.subscription__title.title Подписка на новости и рассылку
+                        p.subscription__text.text Подпишитесь на нашу рассылку прямо сейчас и будьте в курсе новых поставок, скидок и эксклюзивных предложений.
+                        .form
+                            form(action="#").form__body
+                                input(type="email" name="email" placeholder="Ваш email" required).form__input
+                                a(href="#").form__button Подписаться
+                    .subscription__body-image
+                        img(src="../img/header/coffee.png", alt="Кофе")
+            include modules/footer
+
+
+        script(src="../js/jquery-3.6.1.min.js")
+        script(src="../smartbasket/js/smartbasket.min.js")
+        script(src="../js/main.js") 

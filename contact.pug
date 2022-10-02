@@ -1,0 +1,61 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Магазин кофе
+
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet")
+
+        link(rel="icon" href="../Favicon.png" type="image/x-icon")
+
+        style 
+            include style/smartbasket.min.css
+            include style/dist/style.css
+    body
+        div.wrapper
+            include modules/header
+            section.contact.container
+                h3.contact__title.title Контакты
+                .contact__body
+                    .contact__body-offer
+                        .contact__row.contact__row-1
+                            p.contact__row-title Связаться с нами:
+                            .contact__row-text
+                                a(href="tel:+74012375343") +7 (999) 999 99 99
+                                a(href="email:Import.com") Import@kldrefine.com
+
+                        .contact__row.contact__row-2
+                            p.contact__row-title Юридический адрес:
+                            p.contact__row-address.address-1 Российская, Федерация, ХХХ область, ХХХ район, город ХХХ, улица ХХХ
+                                
+
+                        .contact__row.contact__row-3
+                            p.contact__row-title Адрес склада:
+                            p.contact__row-address.address-2 Московская область, город ХХХ, улица ХХХ
+
+                    .myMap
+                        div(style="position:relative;overflow:hidden;")
+                            a(href="https://yandex.ru/maps/2/saint-petersburg/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;") Санкт‑Петербург
+                            a(href="https://yandex.ru/maps/2/saint-petersburg/house/ulitsa_nekrasova_3_5/Z0kYdQJhSkwBQFtjfXVyeXtqZw==/?ll=30.351396%2C59.938793&utm_medium=mapframe&utm_source=maps&z=16.43" style="color:#eee;font-size:12px;position:absolute;top:14px;") Улица Некрасова, 3-5 — Яндекс Карты
+                            iframe(src="https://yandex.ru/map-widget/v1/-/CCURiJGu1B", width="100%" height="400" frameborder="1" allowfullscreen="true" style="position:relative;") 
+            section.catalog-subscription.container
+                .subscription__body
+                    .subscription__body-info
+                        h2.subscription__title.title Подписка на новости и рассылку
+                        p.subscription__text.text Подпишитесь на нашу рассылку прямо сейчас и будьте в курсе новых поставок, скидок и эксклюзивных предложений.
+                        .form
+                            form(action="#").form__body
+                                input(type="email" name="email" placeholder="Ваш email" required).form__input
+                                a(href="#").form__button Подписаться
+                    .subscription__body-image
+                        img(src="../img/header/coffee.png", alt="Кофе")
+            div.smart-basket__wrapper
+            include modules/footer
+
+        script(src="../js/jquery-3.6.1.min.js")
+        script(src="../smartbasket/js/smartbasket.min.js")
+        script(src="../js/main.js")

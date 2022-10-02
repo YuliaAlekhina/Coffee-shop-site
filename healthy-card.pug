@@ -1,0 +1,97 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Магазин кофе
+
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet")
+
+        link(rel="icon" href="../Favicon.png" type="image/x-icon")
+
+        style 
+            include style/smartbasket.min.css
+            include style/dist/style.css
+    body
+        div.wrapper
+            include modules/header
+            section.coffee-card
+                .coffee-card__body.container
+                    .coffee-card__row
+                        .coffee-card__row-image
+                            img(src="../img/healthy-card/image-1.png", alt="Ячменный напиток")
+                        .coffee-card__row-info
+                            .coffee-card__row-grain
+                                img(src="../img/coffee-card/Vector.png", alt="Зерно")
+                                img(src="../img/coffee-card/Vector.png", alt="Зерно")
+                                img(src="../img/coffee-card/Vector.png", alt="Зерно")
+                                img(src="../img/coffee-card/Vector.png", alt="Зерно")
+                                img(src="../img/coffee-card/Vector.png", alt="Зерно")
+                            .coffee-card__row-text
+                                p.coffee-card__row-name Millor
+                            P.coffee-card__row-description Ячменные напитки
+                            .coffee-card__row-grade
+                                img(src="../img/coffee-card/Star-1.png", alt="Звезда")
+                                img(src="../img/coffee-card/Star-1.png", alt="Звезда")
+                                img(src="../img/coffee-card/Star-1.png", alt="Звезда")
+                                img(src="../img/coffee-card/Star-1.png", alt="Звезда")
+                                img(src="../img/coffee-card/Star-2.png", alt="Звезда")
+                                p.coffee-card_grade 4.0
+                            P.coffee-card__row-description-two Компания Нью Рефайнинг Груп находится в г. Калининграде и имеет свой склад и представительство в Москве. Завод работает на рынке свежеобжаренного кофе и растворимой продукции более 15 лет. Завод имеет немецкое оборудование марки Probat по обжарке кофе и итальянские агломераторы для производства растворимой продукции.
+                            .coffee-card__tabs.tabs
+                                ul.work-tabs.tabs__caption
+                                    li.work-tabs__item.active
+                                        a(href="#") 100 г.
+                                    li.work-tabs__item
+                                        a(href="#") 150 г.
+                                    li.work-tabs__item
+                                        a(href="#") 200 г.
+                                    li.work-tabs__item
+                                        a(href="#") 1000 г.
+                                .works-wrap.tabs__content.button-small.active
+                                    a(href="healthy-eating.html").works-wrap__item Купить за 250 ₽
+                                .works-wrap.tabs__content.button-small
+                                    a(href="healthy-eating.html").works-wrap__item Купить за 350 ₽
+                                .works-wrap.tabs__content.button-small
+                                    a(href="healthy-eating.html").works-wrap__item Купить за 450 ₽
+                                .works-wrap.tabs__content.button-small
+                                    a(href="healthy-eating.html").works-wrap__item Купить за 800 ₽
+            
+            div.smart-basket__wrapper
+            section.description.container
+                .description__body
+                    h3.description__title.title Описание
+                    .description__information
+                        .description__information-info
+                            p.description__information_text.text.paragraph-1 Разнообразный и богатый опыт новая модель организационной деятельности позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач. Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание модели развития.
+                            p.description__information_text.text.paragraph-2 Задача организации, в особенности же рамки и место обучения кадров способствует подготовки и реализации систем массового участия. Таким образом укрепление и развитие структуры способствует подготовки и реализации направлений прогрессивного развития.
+                            p.description__information_text.text.paragraph-3 Товарищи! реализация намеченных плановых заданий обеспечивает широкому кругу (специалистов) участие в формировании соответствующий условий активизации. С другой стороны реализация намеченных плановых заданий требуют от нас анализа существенных финансовых и административных условий.
+                        .description__information-image
+                            img(src="../img/healthy-card/image-2.png", alt="Ячменный напиток")
+
+
+            section.how-cook.container
+                .how-cook__body
+                    h3.how-cook__title.title Как готовить?
+                    p.how-cook__information_text.text Разнообразный и богатый опыт новая модель организационной деятельности позволяет оценить значение позиций, занимаемых участниками в отношении поставленных задач. Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание модели развития ленных задач. Значимость этих проблем настолько очевидна, что дальнейшее развитие различных форм деятельности в значительной степени обуславливает создание модели развития
+
+            section.catalog-subscription.container
+                .subscription__body
+                    .subscription__body-info
+                        h2.subscription__title.title Подписка на новости и рассылку
+                        p.subscription__text.text Подпишитесь на нашу рассылку прямо сейчас и будьте в курсе новых поставок, скидок и эксклюзивных предложений.
+                        .form
+                            form(action="#").form__body
+                                input(type="email" name="email" placeholder="Ваш email" required).form__input
+                                a(href="#").form__button Подписаться
+                    .subscription__body-image
+                        img(src="../img/header/coffee.png", alt="Кофе")
+            include modules/footer
+
+
+        script(src="../js/jquery-3.6.1.min.js")
+        script(src="../smartbasket/js/smartbasket.min.js")
+        script(src="../js/main.js")

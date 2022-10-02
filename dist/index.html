@@ -1,0 +1,3579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин кофе</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="../Favicon.png" type="image/x-icon">
+    <style>
+      @charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Exo+2:400,700&display=swap&subset=cyrillic-ext);
+
+.smart-basket {
+	font: 400 16px 'Exo 2', 'Open Sans', sans-serif;
+	width: 100%;
+	font-size: 16px;
+	padding: 30px 0;
+	position: fixed;
+	top: -25000px;
+	background: #fff;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	overflow-y: scroll;
+	-webkit-transition: .8s;
+	-o-transition: .8s;
+	transition: .8s;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+.smart-basket button,
+.smart-basket div,
+.smart-basket form,
+.smart-basket input,
+.smart-basket label,
+.smart-basket p,
+.smart-basket span {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	font-family: 'Exo 2', 'Open Sans', sans-serif
+}
+
+.smart-basket_active {
+	-webkit-transition: .8s;
+	-o-transition: .8s;
+	transition: .8s;
+	top: 0;
+	-webkit-animation: modalAnimate ease-in-out .8s;
+	animation: modalAnimate ease-in-out .8s;
+	opacity: 1;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10000
+}
+
+@media (max-width:1030px) {
+	.smart-basket {
+		padding: 10px
+	}
+}
+
+.smart-basket__form {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+	-webkit-box-shadow: 0 3px 25px rgba(0, 0, 0, .2);
+	box-shadow: 0 3px 25px rgba(0, 0, 0, .2);
+	border-radius: 3px;
+	padding-bottom: 15px
+}
+
+.smart-basket__product-item {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: 15px 0;
+	border-bottom: 1px solid #e2e2e2
+}
+
+.smart-basket__product-item:first-child {
+	border-bottom: 1px dashed #d2d2d2
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-item:first-child {
+		display: none
+	}
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-item {
+		-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+		box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+		margin-bottom: 30px;
+		padding: 15px
+	}
+}
+
+.smart-basket__product-item:last-child {
+	border-bottom: 1px dashed #d2d2d2 !important
+}
+
+.smart-basket__product-id {
+	width: 100%;
+	max-width: 120px;
+	padding: 10px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-id:before {
+		content: 'ID/Артикул: ';
+		color: #929292;
+		margin-right: 5px;
+		width: 100%
+	}
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-id {
+		max-width: 100%;
+		width: 50%;
+		border-left: 1px solid #e2e2e2;
+		border-top: 1px solid #e2e2e2;
+		border-right: 1px solid #e2e2e2;
+		height: 60px;
+		padding: 15px
+	}
+}
+
+@media (max-width:1030px) and (max-width:768px) {
+	.smart-basket__product-id {
+		border: none;
+		width: 100%;
+		padding: 15px 0
+	}
+}
+
+.smart-basket__product-name {
+	width: 100%;
+	max-width: 360px;
+	padding: 10px 0 10px 15px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: start;
+	-webkit-justify-content: flex-start;
+	-ms-flex-pack: start;
+	justify-content: flex-start;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-name {
+		max-width: 100%;
+		padding: 0 0 15px;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-webkit-flex-flow: column;
+		-ms-flex-flow: column;
+		flex-flow: column;
+		text-align: center;
+		font-size: 18px
+	}
+}
+
+.smart-basket__product-name img {
+	margin-right: 10px
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-name img {
+		margin: 0 auto 10px
+	}
+}
+
+.smart-basket__product-quantity {
+	width: 100%;
+	max-width: 130px;
+	text-align: center;
+	padding: 10px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-quantity {
+		max-width: 100%;
+		padding: 15px;
+		width: 50%;
+		border-left: 1px solid #e2e2e2;
+		border-top: 1px solid #e2e2e2;
+		border-right: 1px solid #e2e2e2;
+		height: 60px
+	}
+}
+
+@media (max-width:768px) {
+	.smart-basket__product-quantity {
+		border: none;
+		width: 100%;
+		padding: 15px 0
+	}
+}
+
+.smart-basket__product-quantity_header {
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center
+}
+.product__quantity {
+
+}
+.smart-basket__quantity-item {
+	width: 100%;
+	text-align: center;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+
+    margin-top: 15px;
+}
+
+.smart-basket__add-item,
+.smart-basket__remove-item {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	width: 40px;
+	height: 40px;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	border: 1px solid #E1B168;
+	background: 0 0;
+	padding: 0;
+	cursor: pointer;
+	-webkit-appearance: none;
+	outline: 0;
+	box-sizing: border-box
+}
+
+.smart-basket__product-quantity-state {
+	width: calc(100% - 60px);
+	border: 1px solid #E1B168;
+	height: 40px;
+	text-align: center;
+	-webkit-appearance: none;
+	-moz-appearance: textfield;
+	pointer-events: none;
+	background: 0 0;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+.smart-basket__product-quantity-state::-webkit-inner-spin-button,
+.smart-basket__product-quantity-state::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0
+}
+
+.smart-basket__product-price {
+	width: 100%;
+	max-width: 150px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding: 10px;
+	text-align: center;
+	position: relative
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-price:before {
+		content: 'Цена за 1 товар/услугу: ';
+		color: #929292;
+		margin-right: 5px;
+		text-align: start;
+		width: 100%
+	}
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-price {
+		max-width: 100%;
+		width: 50%;
+		border-right: 1px solid #e2e2e2;
+		border-top: 1px solid #e2e2e2;
+		height: 60px;
+		padding: 15px
+	}
+}
+
+@media (max-width:768px) {
+	.smart-basket__product-price {
+		border: none;
+		width: 100%;
+		padding: 15px 0
+	}
+}
+
+.smart-basket__info-icon {
+	width: 14px;
+	height: 14px;
+	font-size: 12px;
+	border-radius: 7px;
+	background: #f1f1f1;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	position: absolute;
+	top: -5px;
+	right: 20px;
+	cursor: pointer
+}
+
+.smart-basket__info-msgs {
+	position: absolute;
+	top: 36px;
+	width: 100%;
+	max-width: 320px;
+	min-width: 200px;
+	padding: 20px;
+	background: #fff;
+	border: 1px solid #e2e2e2;
+	z-index: 1200;
+	-webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, .28);
+	box-shadow: 0 5px 30px rgba(0, 0, 0, .28);
+	font-size: 14px;
+	display: none
+}
+
+.smart-basket__info-msgs:after {
+	content: '';
+	position: absolute;
+	left: calc(50% - 10px);
+	top: -20px;
+	border: 10px solid transparent;
+	border-bottom: 10px solid #d2d2d2
+}
+
+.smart-basket__info-msgs-close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 18px;
+	border: none;
+	color: #e94e3c;
+	outline: 0;
+	width: 18px;
+	height: 18px;
+	-webkit-appearance: none;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	background: 0 0;
+	cursor: pointer
+}
+
+.smart-basket__product-price-common {
+	width: 100%;
+	max-width: 140px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding: 10px;
+	text-align: center
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-price-common {
+		max-width: 100%;
+		padding: 15px;
+		width: 50%;
+		border-right: 1px solid #e2e2e2;
+		border-top: 1px solid #e2e2e2;
+		height: 60px
+	}
+}
+
+@media (max-width:768px) {
+	.smart-basket__product-price-common {
+		border: none;
+		width: 100%;
+		padding: 15px 0
+	}
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-price-common:before {
+		content: 'Общая цена: ';
+		color: #929292;
+		margin-right: 5px;
+		width: 100%;
+		text-align: start
+	}
+}
+
+.smart-basket__product-delete {
+	width: 100%;
+	max-width: 100px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	padding: 10px 15px 10px;
+	background: 0 0;
+	border: none;
+	-webkit-appearance: none;
+	cursor: pointer
+}
+
+@media (max-width:1030px) {
+	.smart-basket__product-delete {
+		max-width: 100%;
+		padding: 15px;
+		border: 1px solid #e2e2e2;
+		height: 60px
+	}
+}
+
+.smart-basket__delete-icon {
+	font-size: 24px;
+	cursor: pointer;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	color: #e94e3c
+}
+
+.smart-basket__user-info {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: 30px 15px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box
+}
+
+@media (max-width:768px) {
+	.smart-basket__user-info {
+		padding: 30px 0
+	}
+}
+
+.smart-basket__input-wrapper {
+	width: 49%;
+	padding-bottom: 0;
+	border-radius: 3px;
+	-webkit-transition: .5s;
+	-o-transition: .5s;
+	transition: .5s;
+	margin-bottom: 15px
+}
+
+@media (max-width:640px) {
+	.smart-basket__input-wrapper {
+		width: 100%;
+		margin: 10px 0
+	}
+}
+
+.smart-basket__input-wrapper_focus {
+	-webkit-transition: .5s;
+	-o-transition: .5s;
+	transition: .5s;
+	-webkit-box-shadow: #1bbc9b 0 3px 0 0;
+	box-shadow: #1bbc9b 0 3px 0 0
+}
+
+.smart-basket__input-wrapper_error {
+	-webkit-box-shadow: #e94e3c 0 3px 0 0;
+	box-shadow: #e94e3c 0 3px 0 0
+}
+
+.smart-basket__total-cost {
+	width: 105px;
+	text-align: right;
+	display: inline-block;
+	font: 700 16px "Exo 2", sans-serif;
+	border: none;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: textfield;
+	pointer-events: none
+}
+
+.smart-basket__user-input {
+	width: 100%;
+	padding: 0 15px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 60px;
+	font-size: 16px;
+	border: 1px solid #e2e2e2;
+	border-radius: 3px;
+	-webkit-appearance: none;
+	outline: 0;
+	-webkit-transition: .5s;
+	-o-transition: .5s;
+	transition: .5s;
+	position: relative;
+	font-family: 'Exo 2', 'Open Sans', sans-serif
+}
+
+.smart-basket__user-input:invalid {
+	-webkit-box-shadow: none;
+	box-shadow: none
+}
+
+.smart-basket__agreement-wrapper {
+	width: 49%;
+	padding: 0 15px;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 60px;
+	border: 1px solid #e2e2e2;
+	border-radius: 3px;
+	outline: 0;
+	-webkit-transition: .5s;
+	-o-transition: .5s;
+	transition: .5s;
+	position: relative;
+	font-family: 'Exo 2', 'Open Sans', sans-serif;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	background: #fff
+}
+
+@media (max-width:640px) {
+	.smart-basket__agreement-wrapper {
+		width: 100%;
+		margin: 10px 0
+	}
+}
+
+.smart-basket__input-agreement {
+	display: none
+}
+
+.smart-basket__label-agreement {
+	position: relative;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	cursor: pointer;
+	text-align: left;
+	margin: 0 0 0 -15px;
+	padding: 0 15px 0 50px;
+	height: 50px;
+	border-radius: 2px
+}
+
+.smart-basket__label-agreement::after,
+.smart-basket__label-agreement::before {
+	content: "";
+	position: absolute;
+	margin: 0;
+	outline: 0;
+	top: 50%;
+	left: 15px !important;
+	-webkit-transform: translate(0, -50%);
+	-ms-transform: translate(0, -50%);
+	transform: translate(0, -50%);
+	-webkit-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease
+}
+
+.smart-basket__link-agreement {
+	text-decoration: none;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	font: 13px 'Exo 2', sans-serif;
+	color: #000
+}
+
+.smart-basket__label-agreement::before {
+	left: 1px;
+	width: 34px;
+	height: 14px;
+	border-radius: 8px
+}
+
+.smart-basket__label-agreement::after {
+	left: 0;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%
+}
+
+.smart-basket__input-agreement:checked+.smart-basket__label-agreement:after {
+	-webkit-transform: translate(80%, -50%);
+	-ms-transform: translate(80%, -50%);
+	transform: translate(80%, -50%)
+}
+
+.smart-basket__label-agreement:before {
+	background-color: #aa5050
+}
+
+.smart-basket__label-agreement:after {
+	background-color: #e2e2e2;
+	-webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .14), 0 2px 2px 0 rgba(0, 0, 0, .098), 0 1px 5px 0 rgba(0, 0, 0, .084);
+	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .14), 0 2px 2px 0 rgba(0, 0, 0, .098), 0 1px 5px 0 rgba(0, 0, 0, .084)
+}
+
+.smart-basket__input-agreement:checked+.smart-basket__label-agreement:before {
+	background-color: #a5d6a7
+}
+
+.smart-basket__input-agreement:checked+.smart-basket__label-agreement:after {
+	background-color: #16a085
+}
+
+.smart-basket__result-common {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	padding: 30px 15px;
+	font-weight: 700;
+	border-bottom: 1px dashed #d2d2d2
+}
+
+@media (max-width:1030px) {
+	.smart-basket__result-common {
+		padding: 0 15px 30px
+	}
+}
+
+@media (max-width:768px) {
+	.smart-basket__result-common {
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center
+	}
+}
+
+.smart-basket__quantity-common {
+	margin-right: 30px
+}
+
+@media (max-width:768px) {
+	.smart-basket__quantity-common {
+		margin: 0 0 10px;
+		width: 100%;
+		text-align: center
+	}
+}
+
+.smart-basket__empty-title,
+.smart-basket__success-title {
+	width: calc(100% + 30px);
+	padding: 50px 15px 80px;
+	font-size: 24px;
+	text-align: center;
+	border-bottom: 1px dashed #d2d2d2;
+	margin: 0 -15px 30px
+}
+
+.smart-basket__empty-title {
+	color: #e94e3c
+}
+
+.smart-basket__success-title {
+	color: #1bbc9b
+}
+
+@media (max-width:768px) {
+	.smart-basket__user-form {
+		padding: 0 15px
+	}
+}
+
+.smart-basket__footer {
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+	padding: 0 15px
+}
+
+@media (max-width:768px) {
+	.smart-basket__footer {
+		padding: 0;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+		justify-content: space-between
+	}
+}
+
+.smart-basket__send-form {
+    font-family: 'Josefin Sans', arial;
+	background: #ffc505;
+	border: none;
+	padding: 15px 25px;
+	color: rgb(255, 255, 255);
+	font-size: 16px;
+	-webkit-appearance: none;
+	cursor: pointer;
+	border-radius: 3px
+}
+
+@media (max-width:768px) {
+	.smart-basket__send-form {
+		width: 49%;
+		padding: 15px 34px
+	}
+}
+
+.smart-basket__close-form {
+    font-family: 'Source Sans Pro', sans-serif;
+	background: #34a9fc;
+	border: none;
+	padding: 15px 25px;
+	color: rgb(255, 255, 255);
+	font-size: 16px;
+	-webkit-appearance: none;
+	cursor: pointer;
+	border-radius: 3px;
+	margin-right: 30px
+}
+
+@media (max-width:768px) {
+	.smart-basket__close-form {
+		width: 49%;
+		padding: 15px 10px;
+		margin-right: 0
+	}
+}
+
+.smart-basket__alert-msg-button {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center
+}
+
+.smart-basket__input {
+	-webkit-appearance: none;
+	border: none;
+	padding: 0;
+	margin: 0;
+	background: 0 0;
+	width: 100%;
+	text-align: center;
+	font-size: 16px;
+	pointer-events: none
+}
+
+@media (max-width:1030px) {
+	.smart-basket__input {
+		text-align: right
+	}
+}
+
+.smart-basket__alert-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-ms-flex-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, .3);
+	-webkit-animation: alertAnimate ease-in-out .3s;
+	animation: alertAnimate ease-in-out .3s;
+	z-index: 99;
+}
+
+.smart-basket__alert {
+	width: 100%;
+	max-width: 480px;
+	background: #fff;
+	-webkit-box-shadow: 0 5px 30px rgba(0, 0, 0, .28);
+	box-shadow: 0 5px 30px rgba(0, 0, 0, .28);
+	padding: 15px
+}
+
+@media (max-width:768px) {
+	.smart-basket__alert {
+		margin: 0 15px
+	}
+}
+
+.smart-basket__alert-icon {
+	width: 100px;
+	margin: 30px auto
+}
+
+.smart-basket__alert-icon svg {
+	width: 100%;
+	display: block
+}
+
+.smart-basket__alert-icon .path {
+	stroke-dasharray: 1000;
+	stroke-dashoffset: 0
+}
+
+.smart-basket__alert-icon .path.circle {
+	-webkit-animation: dash .9s ease-in-out;
+	animation: dash .9s ease-in-out
+}
+
+.smart-basket__alert-icon .path.line {
+	stroke-dashoffset: 1000;
+	-webkit-animation: dash .9s .35s ease-in-out forwards;
+	animation: dash .9s .35s ease-in-out forwards
+}
+
+.smart-basket__alert-icon .path.check {
+	stroke-dashoffset: -100;
+	-webkit-animation: dash-check .9s .35s ease-in-out forwards;
+	animation: dash-check .9s .35s ease-in-out forwards
+}
+
+.smart-basket__alert-text {
+	text-align: center;
+	margin-bottom: 30px;
+	font-size: 18px
+}
+
+.smart-basket__alert-footer {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	-ms-flex-pack: justify;
+	justify-content: space-between
+}
+
+@media (max-width:450px) {
+	.smart-basket__alert-footer {
+		-webkit-box-pack: center;
+		-webkit-justify-content: center;
+		-ms-flex-pack: center;
+		justify-content: center;
+		-webkit-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		flex-wrap: wrap
+	}
+}
+
+.smart-basket__alert-button {
+	height: 50px;
+	border: none;
+	-webkit-appearance: none;
+	font-size: 16px;
+	color: #fff;
+	cursor: pointer
+}
+
+.smart-basket__alert-button_close {
+	background: #F9B300;
+	width: 48%
+}
+
+.smart-basket__alert-button_close:hover {
+	background: #da9c00
+}
+
+@media (max-width:450px) {
+	.smart-basket__alert-button_close {
+		width: 100%;
+		margin-bottom: 15px
+	}
+}
+
+.smart-basket__alert-button_by {
+	background: #00f0c0;
+	width: 48%
+}
+
+.smart-basket__alert-button_by:hover {
+	background: #00f0c0;
+}
+
+@media (max-width:450px) {
+	.smart-basket__alert-button_by {
+		width: 100%
+	}
+}
+
+@-webkit-keyframes modalAnimate {
+	0% {
+		top: -2000px;
+		opacity: 0;
+		background: 0 0
+	}
+
+	60% {
+		top: 0;
+		opacity: 1
+	}
+
+	100% {
+		top: 0
+	}
+}
+
+@keyframes modalAnimate {
+	0% {
+		top: -2000px;
+		opacity: 0;
+		background: 0 0
+	}
+
+	60% {
+		top: 0;
+		opacity: 1
+	}
+
+	100% {
+		top: 0
+	}
+}
+
+@-webkit-keyframes alertAnimate {
+	0% {
+		top: 300px;
+		opacity: 0;
+		background: 0 0
+	}
+
+	60% {
+		top: 0;
+		opacity: 1;
+		background: 0 0
+	}
+
+	100% {
+		background: rgba(0, 0, 0, .3)
+	}
+}
+
+@keyframes alertAnimate {
+	0% {
+		top: 300px;
+		opacity: 0;
+		background: 0 0
+	}
+
+	60% {
+		top: 0;
+		opacity: 1;
+		background: 0 0
+	}
+
+	100% {
+		background: rgba(0, 0, 0, .3)
+	}
+}
+
+@-webkit-keyframes dash {
+	0% {
+		stroke-dashoffset: 1000
+	}
+
+	100% {
+		stroke-dashoffset: 0
+	}
+}
+
+@keyframes dash {
+	0% {
+		stroke-dashoffset: 1000
+	}
+
+	100% {
+		stroke-dashoffset: 0
+	}
+}
+
+@-webkit-keyframes dash-check {
+	0% {
+		stroke-dashoffset: -100
+	}
+
+	100% {
+		stroke-dashoffset: 900
+	}
+}
+
+@keyframes dash-check {
+	0% {
+		stroke-dashoffset: -100
+	}
+
+	100% {
+		stroke-dashoffset: 900
+	}
+}@charset "UTF-8";
+/*----Общие настройки------*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+:focus, :active {
+  outline: none;
+}
+
+a:focus, a:active {
+  outline: none;
+}
+
+nav, footer, header, aside {
+  display: block;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+.container {
+  max-width: 1530px;
+  margin: 0 auto;
+  padding: 0 15px 0 15px;
+}
+
+/*---------Шапка----------*/
+.wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.header__body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+  z-index: 50;
+}
+
+.menu__item {
+  display: flex;
+}
+
+.link-menu {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 29px;
+}
+
+.menu__link:not(:last-child) {
+  margin-right: 60px;
+}
+
+.link-menu {
+  color: #000000;
+}
+
+.link-menu:hover {
+  color: #F9B300;
+}
+
+/*--Выпадающий список--*/
+.menu__item-item {
+  opacity: 0;
+  visibility: hidden;
+  top: 106px;
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.25);
+  padding: 20px;
+  z-index: 999;
+}
+
+.sub-menu__link {
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+}
+
+._active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu__link-link:not(:last-child) {
+  margin: 0px 0px 12px 0px;
+}
+
+.sub-menu__link:hover {
+  border-bottom: 1px solid #000;
+  color: #000;
+}
+
+.menu__logo {
+  cursor: pointer;
+}
+
+.menu__backet {
+  cursor: pointer;
+  position: relative;
+  z-index: 93;
+}
+
+.menu__backet path:hover {
+  stroke: #F9B300;
+}
+
+/*--Бургер--*/
+@media (max-width: 900px) {
+  .menu__burger {
+    margin-right: 23px;
+    position: relative;
+    width: 28px;
+    height: 18px;
+    z-index: 99;
+  }
+
+  .menu__burger::before,
+.menu__burger::after {
+    content: "";
+    background-color: #000000;
+    position: absolute;
+    width: 100%;
+    height: 5px;
+    border-radius: 50px;
+    transition: all 0.5s ease 0s;
+  }
+
+  .menu__burger::before {
+    top: 0;
+  }
+
+  .menu__burger::after {
+    bottom: 0;
+  }
+
+  .menu__row {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+  }
+
+  /*---Активный бургер----*/
+  .menu__burger.active::before {
+    transform: rotate(45deg);
+    top: 9px;
+  }
+
+  .menu__burger.active::after {
+    transform: rotate(-45deg);
+    bottom: 3px;
+  }
+
+  .menu__link {
+    font-weight: 800;
+  }
+
+  .sub-menu__link {
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  /*---Активный выпадающий список (бургер)----*/
+  .menu__item-item {
+    background-color: #F9B300;
+    box-shadow: none;
+    display: none;
+  }
+
+  .menu__item {
+    display: block;
+  }
+
+  .menu__item > li {
+    margin: 0px 0px 10px 0px;
+  }
+
+  .menu__item-item {
+    position: relative;
+    top: -305px;
+    left: 0;
+  }
+
+  ._active {
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+    display: block;
+  }
+
+  .link-menu:hover {
+    color: #000;
+    font-weight: 800;
+  }
+
+  .menu-nav {
+    position: fixed;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 380px;
+    transition: all 0.5s ease 0s;
+    overflow: auto;
+    background: #F9B300;
+    z-index: 99;
+  }
+
+  .menu__item {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 100px;
+  }
+
+  .menu__item li:not(:last-child) {
+    margin-right: 0px;
+    margin-bottom: 20px;
+  }
+
+  .menu-nav.active {
+    left: 0%;
+  }
+
+  body.lock {
+    overflow: hidden;
+  }
+}
+@media (max-width: 400px) {
+  .menu__logo img {
+    width: 100%;
+  }
+}
+/*-------home-coffee------------------*/
+.home-coffee__body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home-coffee__title {
+  font-weight: 900;
+  font-size: 80px;
+  line-height: 100px;
+  color: #000000;
+  margin-bottom: 50px;
+}
+
+.text-black {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 130%;
+  color: #000000;
+}
+
+.home-coffee__text-one {
+  margin-bottom: 15px;
+}
+
+.home-coffee__text span {
+  font-weight: 600;
+}
+
+.home-coffee__image img {
+  width: 100%;
+}
+
+.home-coffee__image {
+  position: relative;
+}
+
+.button-big {
+  margin-top: 90px;
+}
+
+.home-coffee__btn {
+  background-color: #F9B300;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  padding: 20px 50px;
+}
+
+.home-coffee {
+  position: relative;
+  z-index: 50;
+}
+
+.home-coffee::before {
+  content: "";
+  position: absolute;
+  overflow: hidden;
+  width: 600px;
+  height: 1460px;
+  right: 370px;
+  top: -156px;
+  transform: translate(100%, 0px);
+  background-image: url(../img/header/fon.png);
+  border-radius: 30px 0px 0px 30px;
+  z-index: 0;
+}
+
+@media (max-width: 1100px) {
+  .home-coffee::before {
+    display: none;
+  }
+
+  .home-coffee__body {
+    flex-direction: column;
+  }
+}
+@media (max-width: 760px) {
+  .home-coffee__title {
+    font-size: 50px;
+    line-height: 50px;
+  }
+}
+@media (max-width: 480px) {
+  .home-coffee__title {
+    font-size: 35px;
+    line-height: 50px;
+    margin-bottom: 30px;
+  }
+
+  .home-coffee__btn {
+    background-color: #F9B300;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 36px;
+    padding: 15px 20px;
+  }
+}
+@media (max-width: 350px) {
+  .home-coffee__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+/*------our-production---------------*/
+.our-production {
+  margin-top: 80px;
+  z-index: 99;
+  position: relative;
+}
+
+.title {
+  font-weight: 900;
+  font-size: 50px;
+  line-height: 62px;
+  color: #000000;
+}
+
+.our-production__row {
+  display: flex;
+  justify-content: space-around;
+  margin: 80px auto;
+}
+
+.our-production__item {
+  background-color: #fff;
+  box-shadow: 0px 0px 30px rgba(146, 146, 146, 0.2);
+  border-radius: 20px;
+  padding: 230px 35px 65px 35px;
+}
+
+.our-production__item-text {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  text-align: center;
+  color: #000000;
+}
+
+.our-production__button {
+  justify-content: center;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.button-small {
+  margin-top: 50px;
+  background-color: #F9B300;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 36px;
+  display: block;
+  text-align: center;
+}
+
+.our-production__item-one,
+.our-production__item-two,
+.our-production__item-three {
+  position: relative;
+}
+
+.our-production__item-one::before {
+  content: "";
+  position: absolute;
+  background-image: url(../img/header/production-1.png);
+  width: 295px;
+  height: 215px;
+  top: -50px;
+  left: 47px;
+}
+
+.our-production__item-two::before {
+  content: "";
+  position: absolute;
+  background-image: url(../img/header/production-2.png);
+  width: 203px;
+  height: 280px;
+  top: -70px;
+  left: 87px;
+}
+
+.our-production__item-three::before {
+  content: "";
+  position: absolute;
+  background-image: url(../img/header/production-3.png);
+  width: 260px;
+  height: 190px;
+  top: -34px;
+  left: 23px;
+}
+
+.catalog-items__body {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1300px) {
+  .our-production__row {
+    flex-direction: column;
+  }
+
+  .our-production__item {
+    margin: 37px auto;
+    max-width: 380px;
+  }
+}
+@media (max-width: 420px) {
+  .our-production__item {
+    max-width: 100%;
+    color: #fff;
+  }
+
+  .our-production__item-one::before {
+    content: "";
+    position: absolute;
+    background-image: url(../img/header/production-1.png);
+    width: 295px;
+    height: 215px;
+    top: -50px;
+    left: 33px;
+  }
+
+  .our-production__item-two::before {
+    content: "";
+    position: absolute;
+    background-image: url(../img/header/production-2.png);
+    width: 203px;
+    height: 280px;
+    top: -70px;
+    left: 70px;
+  }
+
+  .our-production__item-three::before {
+    content: "";
+    position: absolute;
+    background-image: url(../img/header/production-3.png);
+    width: 260px;
+    height: 190px;
+    top: -34px;
+    left: 47px;
+  }
+
+  .our-production__item-text {
+    font-size: 25px;
+  }
+
+  .our-production__item {
+    padding: 230px 25px 65px 25px;
+  }
+
+  .our-production__btn {
+    padding: 15px 20px;
+    display: block;
+    margin: 0 auto;
+    width: 250px;
+    text-align: center;
+    justify-content: center;
+    color: #fff;
+  }
+}
+/*--------items-sale------------------*/
+.items-sale {
+  margin-top: 90px;
+}
+
+.items-sale__title {
+  text-align: right;
+  margin-bottom: 40px;
+}
+
+.items-sale__text {
+  text-align: right;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 130%;
+  color: #000000;
+}
+
+/*----ФОН--------*/
+.our-production {
+  position: relative;
+  z-index: 50;
+}
+
+.items-sale__body {
+  position: relative;
+  z-index: 50;
+}
+
+.our-production::before {
+  content: "";
+  position: absolute;
+  overflow: hidden;
+  width: 510px;
+  height: 1445px;
+  left: -550px;
+  top: -34px;
+  transform: translate(100%, 0px);
+  background-image: url(../img/header/fon-2.png);
+  border-radius: 30px 0px 0px 30px;
+  z-index: 0;
+}
+
+/*----Карточки---------------*/
+.items-sale__row {
+  display: flex;
+  justify-content: center;
+  margin-top: 92px;
+  flex-wrap: wrap;
+}
+
+.items-sale__item {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 20px rgba(146, 146, 146, 0.25);
+  border-radius: 20px;
+  width: 440px;
+  margin-bottom: 30px;
+}
+
+.items-sale__item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.items-sale__item-item {
+  padding: 10px 40px 25px 40px;
+}
+
+.items-sale__item-gram {
+  background: #FFF7E1;
+  border: 1px solid #F9B300;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  color: #000000;
+  padding: 3px;
+  width: 80px;
+  margin: 20px 0 0 210px;
+}
+
+.items-sale__item-sale {
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  color: #F9B300;
+}
+
+.items-sale__item-offer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.items-sale__offer {
+  margin-top: 20px;
+}
+
+.items-sale__offer-star {
+  display: flex;
+}
+
+.items-sale__offer-text {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #222222;
+  margin: 8px 0 23px 0;
+}
+
+.items-sale__offer-coffee {
+  display: flex;
+}
+
+.items-sale__text {
+  margin-left: 300px;
+}
+
+.items-sale__row-offer {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #222222;
+  margin-top: 30px;
+  position: relative;
+}
+
+.items-sale__row-offer::before,
+.items-sale__row-offer::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #F9B300;
+  border-radius: 50%;
+}
+
+.items-sale__row-offer::before {
+  bottom: -15px;
+  left: 0;
+}
+
+.items-sale__row-offer::after {
+  bottom: -15px;
+  left: 16px;
+}
+
+.items-sale__row-offer span {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #F0F0F0;
+  border-radius: 50%;
+  bottom: -15px;
+  left: 34px;
+}
+
+.items-sale__item-name {
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 31px;
+  color: #222222;
+  margin: 36px 0 10px 0;
+}
+
+.items-sale__item-description {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #222222;
+}
+
+.items-sale__item-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sale-price {
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 44px;
+  color: #222222;
+  position: relative;
+  margin-top: 30px;
+}
+
+.sale-price span {
+  content: "";
+  position: absolute;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 29px;
+  text-decoration-line: line-through;
+  color: #C6C6C6;
+  top: -20px;
+  left: 0;
+}
+
+.sale-button {
+  margin-top: 30px;
+}
+
+.sale-btn {
+  background-color: #F9B300;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 15px 30px;
+}
+
+@media (max-width: 1200px) {
+  .items-sale__text {
+    margin-left: 0px;
+  }
+}
+@media (max-width: 940px) {
+  .items-sale__item:not(:last-child) {
+    margin-right: 0px;
+  }
+}
+@media (max-width: 600px) {
+  .our-production::before {
+    display: none;
+  }
+}
+@media (max-width: 480px) {
+  .items-sale__item {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .items-sale__item-item {
+    padding: 10px 20px 30px 20px;
+  }
+
+  .items-sale__offer-image img {
+    width: 100%;
+  }
+
+  .items-sale__item-gram {
+    display: none;
+  }
+
+  .items-sale__title {
+    text-align: center;
+  }
+}
+@media (max-width: 340px) {
+  .items-sale__item-price {
+    flex-direction: column;
+  }
+}
+/*------work-------------------*/
+.work {
+  margin-top: 180px;
+  position: relative;
+  z-index: 50;
+}
+
+.work::before {
+  content: "";
+  position: absolute;
+  overflow: hidden;
+  width: 1600px;
+  height: 1105px;
+  left: 0px;
+  top: -228px;
+  background-image: url(../img/header/fon-3.png);
+  border-radius: 30px 0px 0px 30px;
+  z-index: 0;
+}
+
+.work__body {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 50;
+}
+
+.work__body-image {
+  margin-right: 60px;
+}
+
+.work__info-1 {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.work__info-img {
+  margin-right: 30px;
+}
+
+.work__info-title {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: #000000;
+  margin-bottom: 18px;
+}
+
+.work__info-text {
+  text-align: left;
+}
+
+@media (max-width: 1450px) {
+  .work__body-image img {
+    width: 100%;
+  }
+}
+@media (max-width: 1100px) {
+  .work__body {
+    flex-direction: column;
+  }
+
+  .work__body-image {
+    margin-right: 0px;
+  }
+}
+@media (max-width: 350px) {
+  .work__title {
+    font-size: 35px;
+    line-height: 42px;
+    text-align: center;
+  }
+
+  .work__info {
+    margin-top: 45px;
+  }
+
+  .work__info-img {
+    margin-right: 20px;
+  }
+}
+/*------coffee-roasting--------------*/
+.coffee-roasting {
+  margin-top: 90px;
+}
+
+.coffee-roasting__title {
+  margin-bottom: 60px;
+}
+
+.coffee-roasting__text-2 {
+  margin: 30px 0 30px 0;
+}
+
+.coffee-roasting__btn {
+  margin-top: 40px;
+  color: #fff;
+}
+
+/*-------news---------------------*/
+.news {
+  margin-top: 120px;
+}
+
+.news__title {
+  margin-bottom: 60px;
+}
+
+.news__body-row-1,
+.news__body-row-2 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.news__body_news-1,
+.news__body_news-4 {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 30px rgba(146, 146, 146, 0.2);
+  border-radius: 20px;
+  display: flex;
+  flex: 1 1 170%;
+  margin-top: 30px;
+}
+
+.news__body_news-2,
+.news__body_news-3 {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 30px rgba(146, 146, 146, 0.2);
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.news__body_news-info {
+  padding: 40px 60px 40px 120px;
+}
+
+.news__body_news-title {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 130%;
+  color: #000000;
+  margin-bottom: 30px;
+}
+
+.news__body_news-text {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+  color: #000000;
+}
+
+.news__body_news-image img {
+  width: 160%;
+}
+
+.news__body_news-1,
+.news__body_news-3 {
+  margin-right: 30px;
+}
+
+@media (max-width: 1300px) {
+  .news__body-row-1,
+.news__body-row-2,
+.news__body-row-3,
+.news__body-row-4 {
+    flex-direction: column;
+  }
+
+  .news__body_news-image img {
+    width: 100%;
+  }
+
+  .news__body_news-1,
+.news__body_news-3 {
+    margin-right: 0px;
+  }
+
+  .news__body_news-info {
+    padding: 40px 60px 40px 60px;
+  }
+}
+@media (max-width: 800px) {
+  .news__body_news-info {
+    padding: 20px 20px 20px 20px;
+  }
+}
+@media (max-width: 600px) {
+  .news__body_news-1,
+.news__body_news-4 {
+    flex-direction: column;
+  }
+}
+/*---subscription-----------------*/
+.subscription {
+  margin-top: 150px;
+  position: relative;
+  z-index: 50;
+}
+
+.subscription::before {
+  content: "";
+  position: absolute;
+  overflow: hidden;
+  width: 1600px;
+  height: 555px;
+  left: 0px;
+  top: -90px;
+  background-image: url(../img/header/fon-4.png);
+  border-radius: 30px 0px 0px 30px;
+  z-index: 0;
+}
+
+.subscription__body {
+  display: flex;
+  position: relative;
+  z-index: 50;
+}
+
+.subscription__text {
+  margin: 60px 0 40px 0;
+}
+
+.form__body {
+  background: #F3F3F3;
+  border-radius: 40px;
+}
+
+.form__input {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 130%;
+  color: #C9C9C9;
+  background: #F3F3F3;
+  border-radius: 40px;
+  padding: 15px 23px;
+}
+
+.form__button {
+  background: #F9B300;
+  border-radius: 40px;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: #FFFFFF;
+  padding: 15px 37px;
+}
+
+@media (max-width: 1550px) {
+  .subscription__body {
+    flex-direction: column;
+  }
+
+  .subscription::before {
+    display: none;
+  }
+
+  .form__body {
+    max-width: 583px;
+  }
+
+  .subscription__body-image {
+    margin: 0 auto;
+  }
+}
+@media (max-width: 900px) {
+  .subscription__body-image {
+    margin-top: 40px;
+  }
+
+  .subscription__body-image img {
+    width: 100%;
+  }
+}
+@media (max-width: 630px) {
+  .form__body {
+    background: none;
+    flex-direction: column;
+  }
+
+  .form__input {
+    margin-right: 20px;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 400px) {
+  .form__input {
+    max-width: 300px;
+  }
+}
+/*-----footer---------------------*/
+.footer {
+  margin-top: 30px;
+}
+
+.footer__body {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.menu__item-footer {
+  display: flex;
+}
+
+.menu__link-footer {
+  margin-right: 30px;
+}
+
+@media (max-width: 900px) {
+  .footer__body {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+@media (max-width: 500px) {
+  .menu__item-footer {
+    flex-direction: column;
+  }
+
+  .menu__link-footer {
+    margin: 0;
+  }
+}
+/*-----catalog-coffee-------------------------*/
+.catalog-coffee {
+  margin-top: 120px;
+  position: relative;
+  z-index: 50;
+}
+
+.catalog-coffee::before {
+  content: "";
+  position: absolute;
+  overflow: hidden;
+  width: 1663px;
+  height: 670px;
+  left: -62px;
+  top: -90px;
+  background-image: url(../img/catalog-coffee/fon-11.png);
+  border-radius: 30px 0px 0px 30px;
+  z-index: 0;
+}
+
+.catalog-coffee__body {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  z-index: 50;
+}
+
+.catalog-coffe__title {
+  margin-right: 50px;
+}
+
+.title-white {
+  font-weight: 900;
+  font-size: 70px;
+  line-height: 87px;
+  color: #FFFFFF;
+}
+
+.catalog-coffee__image img {
+  width: 100%;
+}
+
+@media (max-width: 1100px) {
+  .catalog-coffee__body {
+    flex-direction: column;
+  }
+
+  .catalog-coffe__title {
+    margin-right: 0px;
+  }
+}
+@media (max-width: 700px) {
+  .catalog-coffe__title {
+    font-size: 40px;
+  }
+}
+@media (max-width: 450px) {
+  .catalog-coffee::before {
+    display: none;
+  }
+
+  .catalog-coffe__title {
+    font-size: 40px;
+    color: #000;
+    line-height: 37px;
+  }
+
+  .catalog-coffee {
+    margin-top: 60px;
+  }
+}
+@media (max-width: 450px) {
+  .catalog-coffe__title {
+    font-size: 30px;
+  }
+}
+/*----catalog-products-------------------*/
+.catalog-products {
+  margin-top: 150px;
+}
+
+.catalog-products__row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1390px) {
+  .catalog-products__row {
+    justify-content: center;
+  }
+}
+@media (max-width: 900px) {
+  .catalog-products {
+    margin-top: 80px;
+  }
+}
+@media (max-width: 400px) {
+  .items-sale__offer-row,
+.items-sale__offer-coffee,
+.items-sale__offer-text,
+.items-sale__offer-star {
+    display: none;
+  }
+}
+.catalog-subscription {
+  position: relative;
+  z-index: 50;
+  margin-top: 180px;
+}
+
+.catalog-subscription::before {
+  content: "";
+  position: absolute;
+  overflow: hidden;
+  width: 1520px;
+  height: 220px;
+  left: 10px;
+  top: -60px;
+  background-image: url(../img/catalog-coffee/fon-22.png);
+  border-radius: 30px 0px 0px 30px;
+  z-index: 0;
+}
+
+.subscription__body {
+  display: flex;
+  position: relative;
+  z-index: 50;
+}
+
+/*----catalog-tea-------------*/
+.catalog-tea__drink {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px -22.5px;
+  justify-content: center;
+}
+
+.catalog-tea__drink-row {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 30px rgba(149, 149, 149, 0.25);
+  border-radius: 20px;
+  padding: 30px 120px 30px 120px;
+  flex: 0 1 25%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 23px;
+}
+
+.catalog-tea__drink-title {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: #000000;
+  margin-top: 20px;
+}
+
+@media (max-width: 420px) {
+  .catalog-tea__drink-row {
+    padding: 30px 60px 30px 60px;
+    margin: 15px;
+  }
+}
+/*--карточки---------*/
+.catalog-tea__products_row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 100px;
+  justify-content: center;
+}
+
+.items-sale__item {
+  background: #FFFFFF;
+  border: 1px solid #E4E4E4;
+  border-radius: 20px;
+  padding: 30px 40px 5px 40px;
+  margin-top: 30px;
+}
+
+/*.items-sale__item:not(:last-child) {
+    margin-right: 30px;
+}*/
+.items-tea__item-offer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.items-tea__offer-star {
+  display: flex;
+}
+
+.items-tea__offer-text {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #222222;
+  margin-top: 10px;
+}
+
+.items-tea__item-gram {
+  background: #FFF7E1;
+  border: 1px solid #F9B300;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 18px;
+  text-align: center;
+  color: #000000;
+  width: 78px;
+  height: 30px;
+}
+
+.items-tea__item-name {
+  font-weight: 900;
+  font-size: 25px;
+  line-height: 31px;
+  color: #222222;
+}
+
+.items-tea__item-description {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #222222;
+  margin: 30px 0 30px 0;
+}
+
+.items-tea__item-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tea-price {
+  font-weight: 900;
+  font-size: 35px;
+  line-height: 44px;
+  color: #222222;
+}
+
+@media (max-width: 400px) {
+  .items-tea__item-gram {
+    display: none;
+  }
+
+  .items-tea__item-price {
+    flex-direction: column;
+  }
+
+  .tea-button {
+    margin-top: 30px;
+  }
+
+  .items-tea__item:not(:last-child) {
+    margin-right: 0px;
+  }
+}
+/*------healthy-eating-----------------------*/
+.healthy-eating {
+  margin-top: 30px;
+}
+
+.healthy-eating__drink {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+  z-index: 50;
+}
+
+.healthy-eating__drink-row {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 30px rgba(149, 149, 149, 0.25);
+  border-radius: 20px;
+  padding: 30px 50px 30px 50px;
+  flex: 0 1 25%;
+  display: flex;
+  margin: 20px;
+  align-items: center;
+}
+
+.healthy-eating__drink-title {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 30px;
+  color: #000000;
+  margin-top: 20px;
+}
+
+@media (max-width: 420px) {
+  .healthy-eating__drink-row {
+    padding: 30px 10px 30px 10px;
+    margin: 15px 0 0 0;
+  }
+}
+/*-------coffee-card---------------------*/
+.coffee-card {
+  background: #FFF7E1;
+}
+
+.coffee-card__body {
+  padding-top: 100px;
+  padding-bottom: 80px;
+}
+
+.coffee-card__row {
+  background: #FFFFFF;
+  border: 1px solid #E4E4E4;
+  box-shadow: 0px 0px 50px rgba(163, 163, 163, 0.25);
+  border-radius: 20px;
+  padding: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.coffee-card__row-image {
+  margin-right: 60px;
+}
+
+.coffee-card__row-info {
+  margin-top: 40px;
+}
+
+.coffee-card__row-grain {
+  display: flex;
+}
+
+.coffee-card__row-grain img {
+  margin-right: 5px;
+}
+
+.coffee-card__row-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.coffee-card__row-name {
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 50px;
+  color: #222222;
+  margin: 20px 0 20px 0;
+}
+
+.coffee-card__row-item {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #F9B300;
+}
+
+.coffee-card__row-description,
+.coffee-card__row-description-two {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #222222;
+}
+
+.coffee-card__row-grade {
+  display: flex;
+  margin: 35px 0 35px 0;
+}
+
+.coffee-card_grade {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: #222222;
+  margin-left: 20px;
+}
+
+.work-tabs {
+  display: flex;
+  margin: 50px 0 66px 30px;
+  flex-wrap: wrap;
+}
+
+.work-tabs__item a {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  color: #000000;
+}
+
+.work-tabs__item {
+  position: relative;
+  margin-right: 70px;
+}
+
+.work-tabs__item::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  left: -32px;
+  top: 6px;
+  background: #E4E4E4;
+  border-radius: 50%;
+}
+
+.work-tabs__item:hover:before {
+  background: #F9B300;
+}
+
+.work-tabs__item:focus:before {
+  background: #F9B300;
+}
+
+.works-wrap {
+  max-width: 305px;
+}
+
+.works-wrap__item {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 30px;
+  text-align: center;
+  color: #FFFFFF;
+  padding: 20px 58px;
+}
+
+@media (max-width: 1000px) {
+  .coffee-card__row {
+    flex-direction: column;
+  }
+
+  .coffee-card__row-image {
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .coffee-card__row-image img {
+    width: 100%;
+  }
+
+  .coffee-card__row {
+    padding: 20px;
+  }
+
+  .coffee-card__row-item {
+    display: none;
+  }
+}
+@media (max-width: 400px) {
+  .works-wrap__item {
+    padding: 20px 38px;
+    text-align: center;
+  }
+
+  .works-wrap {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .work-tabs__item {
+    position: relative;
+    margin-right: 50px;
+  }
+}
+@media (max-width: 340px) {
+  .coffee-card__row-name {
+    font-size: 38px;
+    line-height: 40px;
+  }
+}
+/*------Вкладки---------------*/
+.tabs__content {
+  display: none !important;
+}
+
+.tabs__content.active {
+  display: flex !important;
+}
+
+/*------description---------------*/
+.description {
+  margin-top: 100px;
+}
+
+.description__title {
+  margin-bottom: 40px;
+}
+
+.description__row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.description__taste {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 30px rgba(149, 149, 149, 0.25);
+  border-radius: 20px;
+  padding: 60px 70px 50px 70px;
+  flex: 0 1 27%;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+.description__taste_title,
+.description__characteristic_title {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 130%;
+  color: #222222;
+}
+
+.description__taste_item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  align-items: center;
+}
+
+.description__taste_item-text {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 130%;
+  color: #222222;
+  margin-left: 25px;
+}
+
+.description__characteristic {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 30px rgba(149, 149, 149, 0.25);
+  border-radius: 20px;
+  padding: 60px 80px;
+  flex: 0 1 70%;
+}
+
+.description__characteristic_item {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 37px;
+  align-items: end;
+  position: relative;
+  border-bottom: 1px solid #B2B2B2;
+  padding-bottom: 10px;
+}
+
+.description__characteristic_item-title {
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 130%;
+  color: #000000;
+}
+
+.description__characteristic_item-text {
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 130%;
+  text-align: right;
+  color: #000000;
+  max-width: 400px;
+}
+
+@media (max-width: 1220px) {
+  .description__taste {
+    flex: 0 1 32%;
+  }
+
+  .description__characteristic {
+    flex: 0 1 100%;
+  }
+}
+@media (max-width: 720px) {
+  .description__characteristic {
+    padding: 30px 40px;
+  }
+
+  .description__characteristic_item {
+    border-bottom: none;
+    flex-direction: column;
+    align-items: baseline;
+  }
+
+  .description__characteristic_item-text {
+    text-align: left;
+  }
+}
+@media (max-width: 370px) {
+  .description__taste {
+    padding: 30px;
+    flex: 0 1 27%;
+  }
+
+  .description__characteristic {
+    padding: 30px 30px;
+  }
+}
+.description__information {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 50px;
+  border-bottom: 1px solid #B2B2B2;
+}
+
+.description__information-info {
+  margin-right: 100px;
+}
+
+.description__information_text {
+  margin-top: 30px;
+}
+
+.description__information-image {
+  margin-top: 40px;
+}
+
+@media (max-width: 900px) {
+  .description__information {
+    flex-direction: column;
+  }
+
+  .description__information-info {
+    margin-right: 0px;
+  }
+}
+@media (max-width: 430px) {
+  .description__information-image img {
+    width: 100%;
+  }
+}
+/*-----description__additionally------------------*/
+.description__additionally {
+  margin-top: 100px;
+}
+
+.description__additionally-image {
+  margin-top: 90px;
+}
+
+.description__additionally-image img {
+  width: 100%;
+}
+
+.description__additionally_text {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 36px;
+  color: #000000;
+  margin-top: 70px;
+}
+
+@media (max-width: 700px) {
+  .description__additionally-image {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 400px) {
+  .description__additionally_title {
+    font-size: 40px;
+  }
+}
+/*----how-cook---------------------*/
+.how-cook__body {
+  padding-bottom: 50px;
+  border-bottom: 1px solid #B2B2B2;
+}
+
+.how-cook__title {
+  margin: 50px 0 50px 0;
+}
+
+/*----blog----------------*/
+.blog {
+  margin-top: 130px;
+}
+
+.blog__body-tabs {
+  display: flex;
+}
+
+.blog__body_item {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 30px rgba(149, 149, 149, 0.25);
+  border-radius: 20px;
+  padding: 30px 50px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.blog__body_item:hover {
+  background: #F9B300;
+}
+
+li .blog__body_item:focus {
+  background: #F9B300;
+}
+
+.blog__body_item:hover path {
+  fill: #fff;
+}
+
+.blog__body_item:not(:last-child) {
+  margin-right: 30px;
+}
+
+.blog__item-text {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #000000;
+  margin-bottom: 23px;
+}
+
+.blog__body_row {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog__body_row-title {
+  margin: 80px 0 40px 0;
+}
+
+.blog__body_row-text {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 640px) {
+  .blog__body-tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .blog__body_item {
+    margin-bottom: 25px;
+  }
+}
+@media (max-width: 380px) {
+  .description__title {
+    font-size: 41px;
+  }
+}
+/*---faq------------*/
+.faq {
+  margin-top: 150px;
+  margin-bottom: 340px;
+  padding-top: 100px;
+  border-top: 1px solid #B3B3B3;
+}
+
+.faq__title {
+  margin-bottom: 40px;
+}
+
+.faq__body {
+  display: flex;
+  flex-direction: row-reverse;
+  position: relative;
+  z-index: 50;
+}
+
+.faq__body::before {
+  content: "";
+  position: absolute;
+  overflow: hidden;
+  width: 1520px;
+  height: 1105px;
+  left: 0px;
+  top: -255px;
+  background-image: url(../img/blog/fon-111.png);
+  border-radius: 30px 0px 0px 30px;
+  z-index: 0;
+}
+
+.faq__body_offer {
+  position: relative;
+  z-index: 50;
+}
+
+.faq__body_item {
+  background: #FFFFFF;
+  box-shadow: 0px 0px 30px rgba(149, 149, 149, 0.25);
+  border-radius: 20px;
+  padding: 30px 60px;
+  width: 600px;
+  margin-bottom: 30px;
+}
+
+.faq__body_question {
+  position: relative;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 130%;
+  color: #000000;
+  margin-left: 30px;
+  cursor: pointer;
+}
+
+.faq__body_question::before {
+  content: "";
+  position: absolute;
+  background-color: #000000;
+  width: 20px;
+  height: 2px;
+  top: 14px;
+  left: -50px;
+}
+
+.faq__body_question.active::after {
+  content: "";
+  position: absolute;
+  background-color: #000000;
+  width: 2px;
+  height: 20px;
+  top: 5px;
+  left: -41px;
+}
+
+.faq__body_text {
+  margin-top: 20px;
+  display: none;
+}
+
+.faq__body_image {
+  position: relative;
+  z-index: 50;
+  margin-top: -70px;
+}
+
+.faq__body_image img {
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .faq__body {
+    flex-direction: column-reverse;
+  }
+
+  .faq__body_item {
+    width: 100%;
+  }
+}
+@media (max-width: 550px) {
+  .faq__body_item {
+    padding: 20px 20px;
+  }
+
+  .faq__body_question::before,
+.faq__body_question::after {
+    margin-left: 15px;
+  }
+
+  .faq {
+    margin-top: 100px;
+    padding-top: 70px;
+    border-top: 1px solid #B3B3B3;
+  }
+}
+/*-------contact-------------------*/
+.contact {
+  margin-top: 100px;
+}
+
+.contact__body {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact__body-offer {
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+.contact__row-title {
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 37px;
+  color: #000000;
+  margin: 50px 0 10px 0;
+}
+
+.contact__row-text a,
+.contact__row-address {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+  color: #222222;
+}
+
+.contact__row-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.myMap {
+  width: 50%;
+}
+
+@media (max-width: 1100px) {
+  .contact__body {
+    flex-direction: column;
+  }
+
+  .myMap {
+    width: 100%;
+  }
+
+  .contact__body-offer {
+    margin-right: 0px;
+  }
+}
+/*------Корзина-------------------*/
+.product__quantity {
+  margin: 25px 30px 40px 30px;
+}
+
+.card__button-add.card__button {
+  background-color: #F9B300;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 15px 30px;
+  margin: -13px auto;
+  width: 85%;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.sale-button {
+  margin-top: 30px;
+}
+
+.smart-basket__min {
+  background-color: rgba(255, 0, 0, 0);
+  position: absolute;
+  color: #fff;
+  width: 60px;
+  height: 65px;
+  margin-top: -58px;
+  margin-left: -10px;
+  border: none;
+}
+
+.smart-basket__min-icon {
+  display: none;
+}
+
+.smart-basket__min-count {
+  color: #000;
+  position: absolute;
+  top: 2px;
+  right: 5px;
+  font-size: 22px;
+}
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header container">
+        <div class="header__body">
+          <div class="menu__logo"><a href="index.html"><img src="../img/header/logo.png" alt="Лого"></a></div>
+          <nav class="menu-nav">
+            <ul class="menu__item">
+              <li class="menu__link"><a class="link-menu" href="#">Каталог товаров
+                  <ul class="menu__item-item">
+                    <li class="menu__link-link"><a class="sub-menu__link" href="catalog-coffee.html">Свежеобжаренный кофе</a></li>
+                    <li class="menu__link-link"><a class="sub-menu__link" href="catalog-tea.html">Чай и кофейные напитки</a></li>
+                    <li class="menu__link-link"><a class="sub-menu__link" href="healthy-eating.html">Здоровое питание</a></li>
+                  </ul></a></li>
+              <li class="menu__link"><a class="link-menu" href="blog.html">Блог</a></li>
+              <li class="menu__link"><a class="link-menu" href="contact.html">Контакты</a></li>
+            </ul>
+          </nav>
+          <div class="menu__row">
+            <div class="menu__burger"></div>
+            <div class="menu__backet"><svg width="37" height="35" viewBox="0 0 37 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M2 2H8L12.02 21.7662C12.1572 22.4458 12.5329 23.0563 13.0813 23.4908C13.6298 23.9253 14.316 24.1561 15.02 24.1429H29.6C30.304 24.1561 30.9902 23.9253 31.5387 23.4908C32.0871 23.0563 32.4628 22.4458 32.6 21.7662L35 9.38095H9.5M15.5 31.5238C15.5 32.3391 14.8284 33 14 33C13.1716 33 12.5 32.3391 12.5 31.5238C12.5 30.7085 13.1716 30.0476 14 30.0476C14.8284 30.0476 15.5 30.7085 15.5 31.5238ZM32 31.5238C32 32.3391 31.3284 33 30.5 33C29.6716 33 29 32.3391 29 31.5238C29 30.7085 29.6716 30.0476 30.5 30.0476C31.3284 30.0476 32 30.7085 32 31.5238Z" stroke="black" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+              <div class="cart-min"></div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="home-coffee container">
+        <div class="home-coffee__body">
+          <div class="home-coffee__info">
+            <h1 class="home-coffee__title">Свежеобжаренный кофе</h1>
+            <p class="home-coffee__text-one text-black">Кофе Калининградской обжарки из разных стран произрастания с доставкой на дом.</p>
+            <p class="home-coffee__text text-black">Мы обжариваем кофе <span> каждые выходные.</span></p>
+            <div class="home-coffee__button button-big"><a class="home-coffee__btn" href="catalog-coffee.html">Посмотреть каталог</a></div>
+          </div>
+          <div class="home-coffee__image"><img src="../img/header/coffee.png" alt="Чашка кофе"></div>
+        </div>
+      </section>
+      <section class="our-production container">
+        <div class="our-production__body">
+          <h2 class="our-production__title title">Каталоги нашей продукции</h2>
+          <div class="our-production__row"><a class="our-production__item our-production__item-one" href="coffee-card.html">
+              <p class="our-production__item-text">Свежеобжаренный кофе</p></a><a class="our-production__item our-production__item-two" href="tea-card.html">
+              <p class="our-production__item-text">Чай и кофейные напитки</p></a><a class="our-production__item our-production__item-three" href="healthy-card.html">
+              <p class="our-production__item-text">Здоровое питание</p></a></div>
+        </div>
+        <div class="items-sale__body container">
+          <h2 class="items-sale__title title">Товары со скидкой</h2>
+          <p class="items-sale__text text">Наша компания предлагает покупать товар со скидкой не только в дни распродаж или в течение действия ограниченных предложений, но и пользоваться скидками постоянно!</p>
+          <div class="catalog-products__body">
+            <div class="catalog-products__row">
+              <!--Первый товар-->
+              <div class="items-sale__item">
+                <div class="items-sale__item-item">
+                  <div class="items-sale__item-gram">250 г.</div>
+                  <div class="items-sale__item-sale">Скидки</div>
+                  <div class="items-sale__item-offer">
+                    <div class="items-sale__offer-image"><img src="../img/header/product.png" alt="Продукт"></div>
+                    <div class="items-sale__offer">
+                      <div class="items-sale__offer-star">
+                        <div class="offer-star star-1"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-2"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-3"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-4"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-5"><img src="../img/header/Star.png" alt="Звезда"></div>
+                      </div>
+                      <p class="items-sale__offer-text">4.0 </p>
+                      <div class="items-sale__offer-coffee">
+                        <div class="offer-coffee coffee-1"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-2"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-3"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-4"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-5"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                      </div>
+                      <div class="items-sale__offer-row">
+                        <p class="items-sale__row-offer row-offer-1">Кислинка<span> </span></p>
+                        <p class="items-sale__row-offer row-offer-2">Горчинка<span> </span></p>
+                        <p class="items-sale__row-offer row-offer-3">Насыщенность<span> </span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-sale__item-info">
+                    <p class="items-sale__item-name">Colombia Supremo</p>
+                    <p class="items-sale__item-description">Свежеобжаренный кофе - описание товара, вкус, аромат</p>
+                    <div class="items-sale__item-price">
+                      <p class="sale-price">250 ₽<span>350 ₽</span></p>
+                      <!--.sale-button
+                      a(href="#").sale-btn В корзину
+                      
+                      -->
+                    </div>
+                  </div>
+                </div>
+                <div class="card__button-add">
+                  <div class="product__quantity card-amount"></div>
+                  <button class="card__button-add card__button" data-sb-id-or-vendor-code="01" data-sb-product-name="Colombia Supremo" data-sb-product-price="250" data-sb-product-quantity="1" data-sb-product-img="../img/header/product.png" href="">В корзину</button>
+                </div>
+              </div>
+              <!--Второй товар-->
+              <div class="items-sale__item">
+                <div class="items-sale__item-item">
+                  <div class="items-sale__item-gram">250 г.</div>
+                  <div class="items-sale__item-sale">Скидки</div>
+                  <div class="items-sale__item-offer">
+                    <div class="items-sale__offer-image"><img src="../img/header/product.png" alt="Продукт"></div>
+                    <div class="items-sale__offer">
+                      <div class="items-sale__offer-star">
+                        <div class="offer-star star-1"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-2"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-3"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-4"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-5"><img src="../img/header/Star.png" alt="Звезда"></div>
+                      </div>
+                      <p class="items-sale__offer-text">4.0 </p>
+                      <div class="items-sale__offer-coffee">
+                        <div class="offer-coffee coffee-1"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-2"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-3"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-4"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-5"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                      </div>
+                      <div class="items-sale__offer-row">
+                        <p class="items-sale__row-offer row-offer-1">Кислинка<span> </span></p>
+                        <p class="items-sale__row-offer row-offer-2">Горчинка<span> </span></p>
+                        <p class="items-sale__row-offer row-offer-3">Насыщенность<span> </span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-sale__item-info">
+                    <p class="items-sale__item-name">Colombia Supremo</p>
+                    <p class="items-sale__item-description">Свежеобжаренный кофе - описание товара, вкус, аромат</p>
+                    <div class="items-sale__item-price">
+                      <p class="sale-price">250 ₽<span>350 ₽</span></p>
+                      <!--.sale-button
+                      a(href="#").sale-btn В корзину
+                      
+                      
+                      -->
+                    </div>
+                  </div>
+                </div>
+                <div class="card__button-add">
+                  <div class="product__quantity card-amount"></div>
+                  <button class="card__button-add card__button" data-sb-id-or-vendor-code="02" data-sb-product-name="Colombia Supremo" data-sb-product-price="250" data-sb-product-quantity="1" data-sb-product-img="../img/header/product.png" href="">В корзину</button>
+                </div>
+              </div>
+              <!--Третий товар-->
+              <div class="items-sale__item">
+                <div class="items-sale__item-item">
+                  <div class="items-sale__item-gram">250 г.</div>
+                  <div class="items-sale__item-sale">Скидки</div>
+                  <div class="items-sale__item-offer">
+                    <div class="items-sale__offer-image"><img src="../img/header/product.png" alt="Продукт"></div>
+                    <div class="items-sale__offer">
+                      <div class="items-sale__offer-star">
+                        <div class="offer-star star-1"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-2"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-3"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-4"><img src="../img/header/Star-yellow.png" alt="Звезда"></div>
+                        <div class="offer-star star-5"><img src="../img/header/Star.png" alt="Звезда"></div>
+                      </div>
+                      <p class="items-sale__offer-text">4.0 </p>
+                      <div class="items-sale__offer-coffee">
+                        <div class="offer-coffee coffee-1"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-2"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-3"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-4"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                        <div class="offer-coffee coffee-5"><img src="../img/header/coffee-22.png" alt="Зерно"></div>
+                      </div>
+                      <div class="items-sale__offer-row">
+                        <p class="items-sale__row-offer row-offer-1">Кислинка<span> </span></p>
+                        <p class="items-sale__row-offer row-offer-2">Горчинка<span> </span></p>
+                        <p class="items-sale__row-offer row-offer-3">Насыщенность<span> </span></p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="items-sale__item-info">
+                    <p class="items-sale__item-name">Colombia Supremo</p>
+                    <p class="items-sale__item-description">Свежеобжаренный кофе - описание товара, вкус, аромат</p>
+                    <div class="items-sale__item-price">
+                      <p class="sale-price">250 ₽<span>350 ₽</span></p>
+                      <!--.sale-button
+                      a(href="#").sale-btn В корзину
+                      
+                      
+                      -->
+                    </div>
+                  </div>
+                </div>
+                <div class="card__button-add">
+                  <div class="product__quantity card-amount"></div>
+                  <button class="card__button-add card__button" data-sb-id-or-vendor-code="03" data-sb-product-name="Colombia Supremo" data-sb-product-price="250" data-sb-product-quantity="1" data-sb-product-img="../img/header/product.png" href="">В корзину</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="smart-basket__wrapper"></div>
+      <section class="work container">
+        <div class="work__body">
+          <div class="work__body-image"><img src="../img/header/cup-coffee.png" alt="Чашка кофе"></div>
+          <div class="work__body-info">
+            <h2 class="work__title title">Почему стоит работать именно с нами?</h2>
+            <div class="work__info">
+              <div class="work__info-1">
+                <div class="work__info-img"><img src="../img/header/Group-1.png" alt="Иконка 1"></div>
+                <div class="work__info-offer">
+                  <p class="work__info-title">Всегда свежая обжарка</p>
+                  <p class="work__info-text text">Подбор степени обжарки под каждый сорт кофе. Всегда свежая обжарка</p>
+                </div>
+              </div>
+              <div class="work__info-1">
+                <div class="work__info-img"><img src="../img/header/Group-2.png" alt="Иконка 2"></div>
+                <div class="work__info-offer">
+                  <p class="work__info-title">Лучшие цены на продукцию</p>
+                  <p class="work__info-text text">Благодаря крупным объемам производства мы даем лучшие цены на нашу продукцию</p>
+                </div>
+              </div>
+              <div class="work__info-1">
+                <div class="work__info-img"><img src="../img/header/Group-3.png" alt="Иконка 3"></div>
+                <div class="work__info-offer">
+                  <p class="work__info-title">Консультации 24/7</p>
+                  <p class="work__info-text text">Наши специалисты готовы всегда помочь и подсказать вам с выбором кофе или другой продукции.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="coffee-roasting container">
+        <div class="coffee-roasting__body">
+          <h2 class="coffee-roasting__title title">Как мы обжариваем наш кофе:</h2>
+          <p class="coffee-roasting__text-1 text">Компания Нью Рефайнинг Груп находится в г. Калининграде и имеет свой склад и представительство в Москве. Завод работает на рынке свежеобжаренного кофе и растворимой продукции более 15 лет. Завод имеет немецкое оборудование марки Probat по обжарке кофе и итальянские агломераторы для производства растворимой продукции.</p>
+          <p class="coffee-roasting__text-2 text">Кофе поставляется в контейнерах напрямую с плантаций по всему миру. Компания имеет долгосрочные контракты по поставке продукции. Каждая партия проходит строгий контроль на заводе для проверки зерна. Зеленое зерно обжаривается, проходит процесс дегазации и тут же отправляется клиентам. Наши обжарщики прошли обучение в России и за рубежом. У нас свой подход к каждой партии зерна.</p>
+          <p class="coffee-roasting__text-3 text">Мы раскрываем вкус каждого сорта кофе.</p>
+          <div class="coffee-roasting__button button-small"><a class="coffee-roasting__btn" href="catalog-coffee.html">Перейти в каталог</a></div>
+        </div>
+      </section>
+      <section class="news container">
+        <div class="news__body">
+          <h2 class="news__title title">Новости компании</h2>
+          <div class="news__body-row">
+            <div class="news__body-row-1">
+              <div class="news__body_news-1">
+                <div class="news__body_news-image"><img src="../img/header/news.png" alt="Картинка"></div>
+                <div class="news__body_news-info">
+                  <p class="news__body_news-title">Танзанийский кофе. Откуда он взялся и почему мы его так любим?</p>
+                  <p class="news__body_news-text">Танзания – красивая африканская страна. Именно здесь расположены легендарные географические объекты – вулкан Килиманджаро и озеро Виктория.</p>
+                </div>
+              </div>
+              <div class="news__body_news-2">
+                <div class="news__body_news-info">
+                  <p class="news__body_news-title">Африканский кофе Кения АА</p>
+                  <p class="news__body_news-text">Кения АА – у этого кофе, из африканской страны, репутация одного из самых вкусных и ярких сортов в мире. Многие обжарщики высоко оценивают местные разновидности высокогорной арабики.</p>
+                </div>
+              </div>
+            </div>
+            <div class="news__body-row-2">
+              <div class="news__body_news-3">
+                <div class="news__body_news-info">
+                  <p class="news__body_news-title">Африканский кофе Кения АА</p>
+                  <p class="news__body_news-text">Кения АА – у этого кофе, из африканской страны, репутация одного из самых вкусных и ярких сортов в мире. Многие обжарщики высоко оценивают местные разновидности высокогорной арабики.</p>
+                </div>
+              </div>
+              <div class="news__body_news-4">
+                <div class="news__body_news-image"><img src="../img/header/news.png" alt="Картинка"></div>
+                <div class="news__body_news-info">
+                  <p class="news__body_news-title">Танзанийский кофе. Откуда он взялся и почему мы его так любим?</p>
+                  <p class="news__body_news-text">Танзания – красивая африканская страна. Именно здесь расположены легендарные географические объекты – вулкан Килиманджаро и озеро Виктория.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="subscription container">
+        <div class="subscription__body">
+          <div class="subscription__body-info">
+            <h2 class="subscription__title title">Подписка на новости и рассылку</h2>
+            <p class="subscription__text text">Подпишитесь на нашу рассылку прямо сейчас и будьте в курсе новых поставок, скидок и эксклюзивных предложений.</p>
+            <div class="form">
+              <form class="form__body" action="#">
+                <input class="form__input" type="email" name="email" placeholder="Ваш email" required><a class="form__button" href="#">Подписаться</a>
+              </form>
+            </div>
+          </div>
+          <div class="subscription__body-image"><img src="../img/header/coffee.png" alt="Кофе"></div>
+        </div>
+      </section>
+      <footer class="footer container">
+        <div class="footer__body">
+          <div class="menu__logo menu__logo-footer"><img src="../img/header/logo.png" alt="Лого"></div>
+          <nav class="menu__nav-footer">
+            <ul class="menu__item-footer">
+              <li class="menu__link-footer"><a class="link-menu" href="catalog-coffee.html">Каталог товаров</a></li>
+              <li class="menu__link-footer"><a class="link-menu" href="blog.html">Блог</a></li>
+              <li class="menu__link"><a class="link-menu" href="contact.html">Контакты</a></li>
+            </ul>
+          </nav>
+        </div>
+      </footer>
+    </div>
+    <script src="../js/jquery-3.6.1.min.js"></script>
+    <script src="../smartbasket/js/smartbasket.min.js"></script>
+    <script src="../js/main.js"></script>
+  </body>
+</html>

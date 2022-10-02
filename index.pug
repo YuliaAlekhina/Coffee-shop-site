@@ -1,0 +1,315 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible' content='IE=edge')
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Магазин кофе
+
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap" rel="stylesheet")
+
+        link(rel="icon" href="../Favicon.png" type="image/x-icon")
+
+        style
+            include style/smartbasket.min.css
+            include style/dist/style.css
+    body
+        div.wrapper
+            include modules/header
+            section.home-coffee.container
+                .home-coffee__body
+                    .home-coffee__info
+                        h1.home-coffee__title Свежеобжаренный кофе
+                        p.home-coffee__text-one.text-black Кофе Калининградской обжарки из разных стран произрастания с доставкой на дом.
+                        p.home-coffee__text.text-black Мы обжариваем кофе <span> каждые выходные.</span>
+                        .home-coffee__button.button-big
+                            a(href="catalog-coffee.html").home-coffee__btn Посмотреть каталог
+                    .home-coffee__image
+                        img(src="../img/header/coffee.png", alt="Чашка кофе")
+            section.our-production.container
+                .our-production__body
+                    h2.our-production__title.title Каталоги нашей продукции
+                    .our-production__row
+                        a(href="coffee-card.html").our-production__item.our-production__item-one
+                            p.our-production__item-text Свежеобжаренный кофе
+                        a(href="tea-card.html").our-production__item.our-production__item-two
+                            p.our-production__item-text Чай и кофейные напитки
+                        a(href="healthy-card.html").our-production__item.our-production__item-three
+                            p.our-production__item-text Здоровое питание
+
+                .items-sale__body.container
+                    h2.items-sale__title.title Товары со скидкой
+                    p.items-sale__text.text Наша компания предлагает покупать товар со скидкой не только в дни распродаж или в течение действия ограниченных предложений, но и пользоваться скидками постоянно!
+                    
+
+
+
+                    .catalog-products__body
+                        .catalog-products__row
+                            //Первый товар
+                            .items-sale__item
+                                .items-sale__item-item
+                                    .items-sale__item-gram 250 г.
+                                    .items-sale__item-sale Скидки
+                                    .items-sale__item-offer
+                                        .items-sale__offer-image
+                                            img(src="../img/header/product.png", alt="Продукт")
+                                        .items-sale__offer
+                                            .items-sale__offer-star
+                                                .offer-star.star-1
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-2
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-3
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-4
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-5
+                                                    img(src="../img/header/Star.png", alt="Звезда")
+                                            p.items-sale__offer-text 4.0 
+                                            .items-sale__offer-coffee
+                                                .offer-coffee.coffee-1
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-2
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-3
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-4
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-5
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .items-sale__offer-row
+                                                p.items-sale__row-offer.row-offer-1 Кислинка
+                                                    span 
+                                                p.items-sale__row-offer.row-offer-2 Горчинка
+                                                    span 
+                                                p.items-sale__row-offer.row-offer-3 Насыщенность
+                                                    span 
+
+                                    .items-sale__item-info
+                                        p.items-sale__item-name Colombia Supremo
+                                        p.items-sale__item-description Свежеобжаренный кофе - описание товара, вкус, аромат
+                                        .items-sale__item-price
+                                            p.sale-price 250 ₽
+                                                span 350 ₽
+                                            //.sale-button
+                                                a(href="#").sale-btn В корзину
+
+                                div.card__button-add
+                                    div.product__quantity.card-amount
+                                    button(data-sb-id-or-vendor-code="01"
+                                        data-sb-product-name="Colombia Supremo"
+                                        data-sb-product-price='250'
+                                        data-sb-product-quantity='1'
+                                        data-sb-product-img="../img/header/product.png" href="").card__button-add.card__button В корзину
+
+
+                            //Второй товар
+                            .items-sale__item
+                                .items-sale__item-item
+                                    .items-sale__item-gram 250 г.
+                                    .items-sale__item-sale Скидки
+                                    .items-sale__item-offer
+                                        .items-sale__offer-image
+                                            img(src="../img/header/product.png", alt="Продукт")
+                                        .items-sale__offer
+                                            .items-sale__offer-star
+                                                .offer-star.star-1
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-2
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-3
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-4
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-5
+                                                    img(src="../img/header/Star.png", alt="Звезда")
+                                            p.items-sale__offer-text 4.0 
+                                            .items-sale__offer-coffee
+                                                .offer-coffee.coffee-1
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-2
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-3
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-4
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-5
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .items-sale__offer-row
+                                                p.items-sale__row-offer.row-offer-1 Кислинка
+                                                    span 
+                                                p.items-sale__row-offer.row-offer-2 Горчинка
+                                                    span 
+                                                p.items-sale__row-offer.row-offer-3 Насыщенность
+                                                    span 
+
+                                    .items-sale__item-info
+                                        p.items-sale__item-name Colombia Supremo
+                                        p.items-sale__item-description Свежеобжаренный кофе - описание товара, вкус, аромат
+                                        .items-sale__item-price
+                                            p.sale-price 250 ₽
+                                                span 350 ₽
+                                            //.sale-button
+                                                a(href="#").sale-btn В корзину
+
+
+                                div.card__button-add
+                                    div.product__quantity.card-amount
+                                    button(data-sb-id-or-vendor-code="02"
+                                        data-sb-product-name="Colombia Supremo"
+                                        data-sb-product-price='250'
+                                        data-sb-product-quantity='1'
+                                        data-sb-product-img="../img/header/product.png" href="").card__button-add.card__button В корзину
+
+
+
+                            //Третий товар
+                            .items-sale__item
+                                .items-sale__item-item
+                                    .items-sale__item-gram 250 г.
+                                    .items-sale__item-sale Скидки
+                                    .items-sale__item-offer
+                                        .items-sale__offer-image
+                                            img(src="../img/header/product.png", alt="Продукт")
+                                        .items-sale__offer
+                                            .items-sale__offer-star
+                                                .offer-star.star-1
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-2
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-3
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-4
+                                                    img(src="../img/header/Star-yellow.png", alt="Звезда")
+                                                .offer-star.star-5
+                                                    img(src="../img/header/Star.png", alt="Звезда")
+                                            p.items-sale__offer-text 4.0 
+                                            .items-sale__offer-coffee
+                                                .offer-coffee.coffee-1
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-2
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-3
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-4
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                                .offer-coffee.coffee-5
+                                                    img(src="../img/header/coffee-22.png", alt="Зерно")
+                                            .items-sale__offer-row
+                                                p.items-sale__row-offer.row-offer-1 Кислинка
+                                                    span 
+                                                p.items-sale__row-offer.row-offer-2 Горчинка
+                                                    span 
+                                                p.items-sale__row-offer.row-offer-3 Насыщенность
+                                                    span 
+
+                                    .items-sale__item-info
+                                        p.items-sale__item-name Colombia Supremo
+                                        p.items-sale__item-description Свежеобжаренный кофе - описание товара, вкус, аромат
+                                        .items-sale__item-price
+                                            p.sale-price 250 ₽
+                                                span 350 ₽
+                                            //.sale-button
+                                                a(href="#").sale-btn В корзину
+
+
+                                div.card__button-add
+                                    div.product__quantity.card-amount
+                                    button(data-sb-id-or-vendor-code="03"
+                                        data-sb-product-name="Colombia Supremo"
+                                        data-sb-product-price='250'
+                                        data-sb-product-quantity='1'
+                                        data-sb-product-img="../img/header/product.png" href="").card__button-add.card__button В корзину
+
+            div.smart-basket__wrapper
+
+
+            section.work.container
+                .work__body
+                    .work__body-image
+                        img(src="../img/header/cup-coffee.png", alt="Чашка кофе")
+                    .work__body-info
+                        h2.work__title.title Почему стоит работать именно с нами?
+                        .work__info
+                            .work__info-1
+                                .work__info-img
+                                    img(src="../img/header/Group-1.png", alt="Иконка 1")
+                                .work__info-offer
+                                    p.work__info-title Всегда свежая обжарка
+                                    p.work__info-text.text Подбор степени обжарки под каждый сорт кофе. Всегда свежая обжарка
+
+                            .work__info-1
+                                .work__info-img
+                                    img(src="../img/header/Group-2.png", alt="Иконка 2")
+                                .work__info-offer
+                                    p.work__info-title Лучшие цены на продукцию
+                                    p.work__info-text.text Благодаря крупным объемам производства мы даем лучшие цены на нашу продукцию
+
+                            .work__info-1
+                                .work__info-img
+                                    img(src="../img/header/Group-3.png", alt="Иконка 3")
+                                .work__info-offer
+                                    p.work__info-title Консультации 24/7
+                                    p.work__info-text.text Наши специалисты готовы всегда помочь и подсказать вам с выбором кофе или другой продукции.
+            section.coffee-roasting.container
+                .coffee-roasting__body
+                    h2.coffee-roasting__title.title Как мы обжариваем наш кофе:
+                    p.coffee-roasting__text-1.text Компания Нью Рефайнинг Груп находится в г. Калининграде и имеет свой склад и представительство в Москве. Завод работает на рынке свежеобжаренного кофе и растворимой продукции более 15 лет. Завод имеет немецкое оборудование марки Probat по обжарке кофе и итальянские агломераторы для производства растворимой продукции.
+                    p.coffee-roasting__text-2.text Кофе поставляется в контейнерах напрямую с плантаций по всему миру. Компания имеет долгосрочные контракты по поставке продукции. Каждая партия проходит строгий контроль на заводе для проверки зерна. Зеленое зерно обжаривается, проходит процесс дегазации и тут же отправляется клиентам. Наши обжарщики прошли обучение в России и за рубежом. У нас свой подход к каждой партии зерна.
+                    p.coffee-roasting__text-3.text Мы раскрываем вкус каждого сорта кофе.
+                    .coffee-roasting__button.button-small
+                        a(href="catalog-coffee.html").coffee-roasting__btn Перейти в каталог
+            section.news.container
+                .news__body
+                    h2.news__title.title Новости компании
+                    .news__body-row
+                        .news__body-row-1
+                            .news__body_news-1
+                                .news__body_news-image
+                                    img(src="../img/header/news.png", alt="Картинка")
+                                .news__body_news-info
+                                    p.news__body_news-title Танзанийский кофе. Откуда он взялся и почему мы его так любим?
+                                    p.news__body_news-text Танзания – красивая африканская страна. Именно здесь расположены легендарные географические объекты – вулкан Килиманджаро и озеро Виктория.
+
+                            .news__body_news-2
+                                .news__body_news-info
+                                    p.news__body_news-title Африканский кофе Кения АА
+                                    p.news__body_news-text Кения АА – у этого кофе, из африканской страны, репутация одного из самых вкусных и ярких сортов в мире. Многие обжарщики высоко оценивают местные разновидности высокогорной арабики.
+
+
+                        .news__body-row-2
+                            .news__body_news-3
+                                .news__body_news-info
+                                    p.news__body_news-title Африканский кофе Кения АА
+                                    p.news__body_news-text Кения АА – у этого кофе, из африканской страны, репутация одного из самых вкусных и ярких сортов в мире. Многие обжарщики высоко оценивают местные разновидности высокогорной арабики.
+
+                            .news__body_news-4
+                                .news__body_news-image
+                                    img(src="../img/header/news.png", alt="Картинка")
+                                .news__body_news-info
+                                    p.news__body_news-title Танзанийский кофе. Откуда он взялся и почему мы его так любим?
+                                    p.news__body_news-text Танзания – красивая африканская страна. Именно здесь расположены легендарные географические объекты – вулкан Килиманджаро и озеро Виктория.
+            section.subscription.container
+                .subscription__body
+                    .subscription__body-info
+                        h2.subscription__title.title Подписка на новости и рассылку
+                        p.subscription__text.text Подпишитесь на нашу рассылку прямо сейчас и будьте в курсе новых поставок, скидок и эксклюзивных предложений.
+                        .form
+                            form(action="#").form__body
+                                input(type="email" name="email" placeholder="Ваш email" required).form__input
+                                a(href="#").form__button Подписаться
+                    .subscription__body-image
+                        img(src="../img/header/coffee.png", alt="Кофе")
+            
+
+            include modules/footer
+
+
+
+
+        script(src="../js/jquery-3.6.1.min.js")
+        script(src="../smartbasket/js/smartbasket.min.js")
+        script(src="../js/main.js")
